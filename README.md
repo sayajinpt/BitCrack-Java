@@ -10,5 +10,7 @@ single address input option or addresses file option.
 
 Thread count to use option 
 
+If a match is found it will write to the darker text box, also creates a Found.txt in the directory with the corresponding address, private key.
+
 
 ![btc](https://github.com/user-attachments/assets/1e46842b-9862-4101-bc5a-43daeec10c09)
