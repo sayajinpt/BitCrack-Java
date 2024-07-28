@@ -1,7 +1,6 @@
 package org.example;
 
 import javax.swing.*;
-import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.nimbus.NimbusLookAndFeel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -15,7 +14,8 @@ import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.bitcoinj.core.Address;
 import org.bitcoinj.core.ECKey;
 import org.bitcoinj.core.NetworkParameters;
@@ -29,7 +29,7 @@ public class Btc_Gen {
     private static final String SAVE_FILE = "save.txt";   // Path to the save file
 
     private static Set<String> addressSet;
-    private static AtomicInteger keysProcessed = new AtomicInteger();
+    private static AtomicLong keysProcessed = new AtomicLong();
     private static BigInteger keyStart = BigInteger.ZERO;
     private static BigInteger keyEnd = BigInteger.ZERO;
     private static BigInteger currentKey;
@@ -378,7 +378,7 @@ public class Btc_Gen {
             });
         }
 
-        int count = keysProcessed.incrementAndGet();
+        long count = keysProcessed.incrementAndGet();
         SwingUtilities.invokeLater(() -> statusLabel.setText("Keys processed: " + formatter.format(count)));
     }
 
@@ -405,7 +405,6 @@ public class Btc_Gen {
         return randomKey.add(start);
     }
 }
-
 
 
 
